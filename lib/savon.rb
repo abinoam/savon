@@ -14,6 +14,7 @@ module Savon
     @observers ||= []
   end
 
+  # Don't get what #inject is doing here, as response param is never used
   def self.notify_observers(operation_name, builder, globals, locals)
     observers.inject(nil) do |response, observer|
       observer.notify(operation_name, builder, globals, locals)
